@@ -1,40 +1,33 @@
-const sortingElm = document.getElementById('sorting');
-const tooltipElm = document.getElementById('tooltip');
+import { bogoSort } from "./BogoSort.js";
+import { bubbleSort } from "./BubbleSort.js"
+import * as utils from "./utils.js"
 
-let visualizedBlocks = []
-let highlighted = [];
-let tooltip = "Press space to sort"
+const shuffleElm = document.getElementById('shuffle');
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
+let list = Array(100).fill(1).map((n, i) => n + i);
+utils.shuffleArray(list);
+utils.vis(list, []);
+
+let sortingAlgs = {
+    "bogo": bogoSort,
+    "bubble": bubbleSort
+}
+
+let alg = "bubble";
+(sortingAlgs[alg] ?? (() => {}))(list);
+
+shuffleElm.addEventListener("click", () => {
+    utils.shuffleArray(list)
+    utils.vis(list, []);
+})
+
+document.body.addEventListener("keydown", (e) => {
+    if (e.code == "Tab") {
+        utils.shuffleArray(list)
+        utils.vis(list, []);
+        e.preventDefault();
     }
-}
-
-function setBlocks(list) {
-    visualizedBlocks = [];
-    list.forEach((item, i) => {
-        let elm = document.createElement("div");
-        elm.classList.add("block");
-        elm.style.width = 100/list.length + "%"
-        elm.style.height = 100*(item/Math.max(...list)) + "%"
-        elm.addEventListener("mouseenter", () => {
-            tooltip = "Number: " + i
-            elm.style.backgroundColor = "#55F";
-        })
-        elm.addEventListener("mouseout", () => {
-            tooltip = "Press space to sort"
-            elm.style.backgroundColor = "#FFF";
-        })
-        visualizedBlocks.push(elm);
-    });
-}
-
-function renderBlocks() {
-    removeAllChildNodes(sortingElm);
-    visualizedBlocks.forEach((item, i) => {if (highlighted.includes(i)) {item.style.backgroundColor = "#F00"}; sortingElm.appendChild(item)});
-}
-
-setInterval(() => {
-    tooltipElm.innerText = tooltip;
-}, 10)
+    if (e.code == "Escape") {
+        window.location.pathname = "/";
+    }
+});

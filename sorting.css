@@ -26,12 +26,19 @@ body {
 .block {
     background-color: #FFF;
 }
-p {
+#tooltip {
     color: #FFF;
     margin: 0px;
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #88888888;
+    background-color: #383838A8;
+    z-index: 10;
     padding: 10px;
+}
+a {
+    color: #06aed5;
+}
+a:visited {
+    color: #06aed5;
 }
