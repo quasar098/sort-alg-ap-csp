@@ -11,6 +11,12 @@ export function shuffleArray(array) {
     }
 }
 
+export function nl(size) {
+    let l = Array(size).fill(1).map((n, i) => n + i);
+    shuffleArray(l);
+    return l;
+}
+
 export function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -60,7 +66,7 @@ export function renderBlocks() {
     visualizedBlocks.forEach((item, i) => {if (highlighted.includes(i)) {item.style.backgroundColor = "#F00"}; sortingElm.appendChild(item)});
 }
 
-export function vis(l, hl) {
+export function vis(l, hl=[]) {
     highlighted = hl;
     setBlocks(l);
     renderBlocks(l);

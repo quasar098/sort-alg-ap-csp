@@ -4,6 +4,18 @@ html {
 :not(i) {
     font-family: Helvetica;
 }
+select {
+    outline: none;
+    border: 1px solid #06aed5;
+    background-color: #38383838;
+    color: #06aed5;
+    border-radius: 0px;
+    padding: 5px;
+    width: 200px;
+}
+select option {
+    background-color: #000000;
+}
 body {
     height: 100%;
     margin: 0px;
