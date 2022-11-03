@@ -1,0 +1,41 @@
+:not(i) {
+  font-family: Helvetica;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+section {
+  background-image: linear-gradient(-45deg, #F1E8B8, #F9E784, #E58F65);
+  width: 100%;
+  height: 100vh;
+  background-size: 400% 400%;
+  position: relative;
+  p
+}
+.title {
+  font-size: 4vw;
+  text-align: center;
+}
+button {
+  height: 10vh;
+  width: 10%;
+  margin-top: 5%;
+  margin-left: 17.5%;
+  font-size: 1vw;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #B1F8F2;
+}
+button:active {
+  background-color: #1EEBDA;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
