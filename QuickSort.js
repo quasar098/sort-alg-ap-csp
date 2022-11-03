@@ -9,7 +9,7 @@ export async function quickSort(list) {
        while (utils.getPaused()) {
            await new Promise(r => setTimeout(r, 10));
        }
-       await new Promise(r => setTimeout(r, 100));
+       await new Promise(r => setTimeout(r, 30));
        do {
          while(list[i]<mid) i++;
          while(list[j]>mid) j--;
@@ -22,11 +22,12 @@ export async function quickSort(list) {
          }
        } while(i<=j);
        if(l<j) {
-         recurs(l,j);
+         await recurs(l,j);
        }
        if(i<r) {
-         recurs(i,r);
+         await recurs(i,r);
        }
     }
-    recurs(0,list.length-1);
+    await recurs(0,list.length-1);
+    utils.vis(list, []);
 }
