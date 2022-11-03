@@ -1,6 +1,7 @@
 import { bogoSort } from "./BogoSort.js";
 import { bubbleSort } from "./BubbleSort.js"
 import { quickSort } from "./QuickSort.js"
+import { mergeSort } from "./MergeSort.js"
 import * as utils from "./utils.js"
 
 const shuffleElm = document.getElementById('shuffle');
@@ -12,15 +13,15 @@ utils.vis(list);
 let sortingAlgs = {
     "bogo": bogoSort,
     "bubble": bubbleSort,
-    "quick": quickSort
+    "quick": quickSort,
+    "merge": mergeSort
 }
 
 let alg = localStorage.getItem("sortingAlg") ?? "bubble";
 (sortingAlgs[alg] ?? (() => { console.log("404") }))(list);
 
 shuffleElm.addEventListener("click", () => {
-    utils.shuffleArray(list)
-    utils.vis(list, []);
+    window.location.reload();
 })
 
 document.body.addEventListener("keydown", (e) => {
