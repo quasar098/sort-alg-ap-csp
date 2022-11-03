@@ -1,0 +1,56 @@
+html {
+    height: 100%;
+}
+:not(i) {
+    font-family: Helvetica;
+}
+select {
+    outline: none;
+    border: 1px solid #06aed5;
+    background-color: #38383838;
+    color: #06aed5;
+    border-radius: 0px;
+    padding: 5px;
+    width: 200px;
+}
+select option {
+    background-color: #000000;
+}
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#sorting {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.block {
+    background-color: #FFF;
+}
+#tooltip {
+    color: #FFF;
+    margin: 0px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #383838A8;
+    z-index: 10;
+    padding: 10px;
+}
+a {
+    color: #06aed5;
+}
+a:visited {
+    color: #06aed5;
+}
