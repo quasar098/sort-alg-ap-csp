@@ -13,12 +13,18 @@
           </div>
           <div class = "buttons">
             <button onclick="location.href = '#'">About Page</button>
-            <button onclick="location.href = '#'">Quick Sort</button>
-            <button onclick="location.href = '#'">Merge Sort</button>
-            <button onclick="location.href = '#'">Bogo Sort</button>
-            <button onclick="location.href = '#'">Bubble Sort</button>
-            <button onclick="location.href = '#'">Insertion Sort</button>
+            <button onclick="location.href = 'sorting.html'">Quick Sort</button>
+            <button onclick="location.href = 'sorting.html'">Merge Sort</button>
+            <button onclick="location.href = 'sorting.html'">Bogo Sort</button>
+            <button onclick="location.href = 'sorting.html'">Bubble Sort</button>
+            <button onclick="location.href = 'sorting.html'">Insertion Sort</button>
           </div>
         </section>
+        <script>
+          function visitAlg(algName) {
+            localStorage.setItem("sortingAlg", algName)
+            location.href="sorting.html";
+          }
+        </script>
     </body>
 </html>
