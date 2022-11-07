@@ -30,7 +30,7 @@ document.body.addEventListener("keydown", (e) => {
         e.preventDefault();
     }
     if (e.code == "Escape") {
-        window.location.pathname = "/";
+        window.location.pathname = "index.html";
     }
 });
 
