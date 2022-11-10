@@ -52,6 +52,15 @@ export function setBlocks(l) {
     });
 }
 
+export async function finishAnim(list) {
+    for (var i = 0; i < visualizedBlocks.length; i++) {
+        visualizedBlocks[i].style.backgroundColor = "#00FF00";
+        await new Promise(r => setTimeout(r, 10));
+    }
+    await new Promise(r => setTimeout(r, 100));
+    vis(list);
+}
+
 document.body.addEventListener("keydown", (e) => {
     if (e.code == "Space") {
         paused = !paused;

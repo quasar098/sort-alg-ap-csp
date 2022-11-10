@@ -30,4 +30,8 @@ export async function quickSort(list) {
     }
     await recurs(0,list.length-1);
     utils.vis(list, []);
+    while (!utils.isSorted(list)) {
+        await new Promise(r => setTimeout(r, 10));
+    }
+    await utils.finishAnim(list);
 }

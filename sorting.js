@@ -2,19 +2,33 @@ import { bogoSort } from "./BogoSort.js";
 import { bubbleSort } from "./BubbleSort.js"
 import { quickSort } from "./QuickSort.js"
 import { mergeSort } from "./MergeSort.js"
+import { insertionSort } from "./InsertionSort.js"
 import * as utils from "./utils.js"
 
 const shuffleElm = document.getElementById('shuffle');
 const sortingAlgChooser = document.querySelector(".sorting-alg-type");
+const changeNumElm = document.getElementById('numElms');
 
-let list = utils.nl(100);
+let list = utils.nl((localStorage.getItem("amount1") ?? 100)*1);
+changeNumElm.addEventListener("input", (e) => {
+    list = utils.nl(changeNumElm.value * 1);
+    utils.vis(list, []);
+})
+changeNumElm.addEventListener("mouseup", (e) => {
+    localStorage.setItem("amount1", changeNumElm.value)
+    window.location.reload();
+})
+changeNumElm.value = list.length
+
+
 utils.vis(list);
 
 let sortingAlgs = {
     "bogo": bogoSort,
     "bubble": bubbleSort,
     "quick": quickSort,
-    "merge": mergeSort
+    "merge": mergeSort,
+    "insertion": insertionSort
 }
 
 let alg = localStorage.getItem("sortingAlg") ?? "bubble";

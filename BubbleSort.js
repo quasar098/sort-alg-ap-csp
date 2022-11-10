@@ -17,9 +17,13 @@ export async function bubbleSort(l) {
                 }
 
                 utils.vis(l, [w+1])
-                await new Promise(r => setTimeout(r, 3));
+                await new Promise(r => setTimeout(r, 0));
             }
         }
         utils.vis(l, []);
     }
+    while (!utils.isSorted(l)) {
+        await new Promise(r => setTimeout(r, 10));
+    }
+    await utils.finishAnim(l);
 }

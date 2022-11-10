@@ -1,17 +1,31 @@
-let list=[]
-for(let i=0;i<100;i++) list[i]=Math.floor(Math.random()*100);
-console.log(list);
-function swapping(index)
-{
-	if(index==0) return;
-	if(list[index]<list[index-1])
-	{
-    let tmp=list[index];
-    list[index]=list[index-1];
-    list[index-1]=tmp;
-		swapping(index-1);
+import * as utils from "./utils.js"
+
+export async function insertionSort(list) {
+	while (utils.getPaused()) {
+		await new Promise(r => setTimeout(r, 10));
 	}
-	return;
+	async function swapping(index)
+	{
+		if(index==0) return;
+		utils.vis(list, [index]);
+		while (utils.getPaused()) {
+			await new Promise(r => setTimeout(r, 10));
+		}
+		await new Promise(r => setTimeout(r, 30));
+		if(list[index]<list[index-1])
+		{
+		    let tmp=list[index];
+		    list[index]=list[index-1];
+		    list[index-1]=tmp;
+			swapping(index-1);
+		}
+		return;
+	}
+	for(let i=1;i<list.length;i++) {
+		await swapping(i);
+	}
+	while (!utils.isSorted(list)) {
+		await new Promise(r => setTimeout(r, 10));
+	}
+	await utils.finishAnim(list);
 }
-for(let i=1;i<100;i++) swapping(i);
-console.log(list);
