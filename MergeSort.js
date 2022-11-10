@@ -36,5 +36,9 @@ export async function mergeSort(list) {
         }
         await new Promise(r => setTimeout(r, 10));
     }
-    MergeSort(0,list.length-1);
+    await MergeSort(0,list.length-1);
+    while (!utils.isSorted(list)) {
+        await new Promise(r => setTimeout(r, 10));
+    }
+    await utils.finishAnim(list);
 }

@@ -13,6 +13,10 @@ select {
     padding: 5px;
     width: 200px;
 }
+input.slider {
+    width: 200px;
+    margin-top: 5px;
+}
 select option {
     background-color: #000000;
 }
