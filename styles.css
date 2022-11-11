@@ -18,6 +18,9 @@ section {
   font-size: 4vw;
   text-align: center;
 }
+h2 {
+    font-size: 2vw;
+}
 p {
   margin: 1%;
 }
