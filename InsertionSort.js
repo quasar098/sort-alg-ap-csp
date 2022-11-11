@@ -11,7 +11,7 @@ export async function insertionSort(list) {
 		while (utils.getPaused()) {
 			await new Promise(r => setTimeout(r, 10));
 		}
-		await new Promise(r => setTimeout(r, 30));
+		await new Promise(r => setTimeout(r, 100));
 		if(list[index]<list[index-1])
 		{
 		    let tmp=list[index];

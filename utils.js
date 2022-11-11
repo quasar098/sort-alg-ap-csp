@@ -41,6 +41,24 @@ let pauseTooltip = "Amogus sus"
 let paused = true;
 let willStep = false;
 
+var notesBeingPlayed = 0;
+
+const synth = new Tone.PolySynth().toDestination();
+synth.maxPolyphony = 30;
+synth.volume.value = -20;
+
+export function playSound(num, highestNum) {
+    if (num == undefined) {
+        return;
+    }
+    let octaves = "345"[Math.floor(num/8*24/highestNum)]
+    let letter = "ABCDEGFG"[Math.floor((((num*24/highestNum)+2)%8))]
+    if (octaves == undefined || letter == undefined) {
+        return;
+    }
+    synth.triggerAttackRelease(letter + octaves, "64n")
+}
+
 export function setBlocks(l) {
     visualizedBlocks = [];
     l.forEach((item, i) => {
@@ -55,7 +73,8 @@ export function setBlocks(l) {
 export async function finishAnim(list) {
     for (var i = 0; i < visualizedBlocks.length; i++) {
         visualizedBlocks[i].style.backgroundColor = "#00FF00";
-        await new Promise(r => setTimeout(r, 10));
+        playSound(i, list.length)
+        await new Promise(r => setTimeout(r, 70));
     }
     await new Promise(r => setTimeout(r, 100));
     vis(list);
@@ -78,6 +97,7 @@ export function renderBlocks() {
 export function vis(l, hl=[]) {
     highlighted = hl;
     setBlocks(l);
+    playSound(l[hl[0]], l.length)
     renderBlocks(l);
 }
 

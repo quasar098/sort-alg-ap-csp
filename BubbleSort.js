@@ -17,7 +17,7 @@ export async function bubbleSort(l) {
                 }
 
                 utils.vis(l, [w+1])
-                await new Promise(r => setTimeout(r, 0));
+                await new Promise(r => setTimeout(r, 30));
             }
         }
         utils.vis(l, []);

@@ -9,7 +9,7 @@ const shuffleElm = document.getElementById('shuffle');
 const sortingAlgChooser = document.querySelector(".sorting-alg-type");
 const changeNumElm = document.getElementById('numElms');
 
-let list = utils.nl((localStorage.getItem("amount1") ?? 100)*1);
+let list = utils.nl((localStorage.getItem("amount1") ?? 24)*1);
 changeNumElm.addEventListener("input", (e) => {
     list = utils.nl(changeNumElm.value * 1);
     utils.vis(list, []);

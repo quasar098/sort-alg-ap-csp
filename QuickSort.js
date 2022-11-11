@@ -9,7 +9,7 @@ export async function quickSort(list) {
        while (utils.getPaused()) {
            await new Promise(r => setTimeout(r, 10));
        }
-       await new Promise(r => setTimeout(r, 30));
+       await new Promise(r => setTimeout(r, 100));
        do {
          while(list[i]<mid) i++;
          while(list[j]>mid) j--;

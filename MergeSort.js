@@ -17,7 +17,7 @@ export async function mergeSort(list) {
             while (utils.getPaused()) {
                 await new Promise(r => setTimeout(r, 10));
             }
-            await new Promise(r => setTimeout(r, 10));
+            await new Promise(r => setTimeout(r, 40));
     	}
     	while(left1<=right1) tmp[index++]=list[left1++];
     	while(left2<=right2) tmp[index++]=list[left2++];
